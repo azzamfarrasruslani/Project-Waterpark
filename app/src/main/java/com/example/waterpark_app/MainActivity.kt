@@ -11,6 +11,9 @@ import com.example.waterpark_app.databinding.ActivityMainBinding
 import com.example.waterpark_app.ui.profile.ProfileActivity
 import com.example.waterpark_app.ui.home.HomeActivity
 import com.example.waterpark_app.ui.login.LoginActivity
+import com.example.waterpark_app.ui.ticket.TicketActivity
+import com.example.waterpark_app.ui.webview.WebActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -26,36 +29,27 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnbgruang.setOnClickListener {
-            val intent = Intent(this, BgRuangActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.btnHome.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.putExtra("app_title", "AquaSplash")
-            intent.putExtra("app_subtitle", "Waterpark terbaik di Rumbai!")
-            startActivity(intent)
-        }
-
-        binding.btnProfile.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.btnLogout.setOnClickListener{
-            MaterialAlertDialogBuilder(this)
-                .setTitle("Konfirmasi")
-                .setMessage("Apakah Anda yakin ingin keluar?")
-                .setPositiveButton("Keluar") { dialog, _ ->
-                    dialog.dismiss()
-                    val intent = Intent(this, LoginActivity::class.java)
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu_home -> {
+                    val intent = Intent(this, HomeActivity::class.java)
+                    intent.putExtra("app_title", "AquaSplash")
+                    intent.putExtra("app_subtitle", "Waterpark terbaik di Rumbai!")
                     startActivity(intent)
+                    true
                 }
-                .setNegativeButton("Batal") { dialog, _ ->
-                    dialog.dismiss()
+                R.id.menu_ticket -> {
+                    val intent = Intent(this, WebActivity::class.java)
+                    startActivity(intent)
+                    true
                 }
-                .show()
+                R.id.menu_profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
         }
     }
 }

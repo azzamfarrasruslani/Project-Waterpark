@@ -1,5 +1,6 @@
 package com.example.waterpark_app.bangunruang
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -59,6 +60,11 @@ class BgRuangActivity : AppCompatActivity() {
                 Log.i("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $luasLingkaran")
                 hasilLingkaran.text = "Hasil: %.2f".format(luasLingkaran)
             }
+        }
+
+        val btnKeluar = findViewById<Button>(R.id.btnKeluar)
+        btnKeluar.setOnClickListener {
+            finish()
         }
     }
 }

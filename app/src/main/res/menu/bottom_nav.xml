@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title=""
+        android:id="@+id/menu_home"
+        android:icon="@drawable/menu_home"
+  />
+    <item android:title=""
+        android:id="@+id/menu_ticket"
+        android:icon="@drawable/menu_ticket"
+     />
+    <item android:title=""
+        android:id="@+id/menu_history"
+        android:icon="@drawable/menu_history"
+  />
+    <item android:title=""
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/menu_profile"
+      />
+</menu>
