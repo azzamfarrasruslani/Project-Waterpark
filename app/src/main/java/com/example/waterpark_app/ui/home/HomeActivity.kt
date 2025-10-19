@@ -35,27 +35,27 @@ class HomeActivity : AppCompatActivity() {
         binding.appSubtitle.text = appSubtitle
 
 
-        binding.bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.menu_home -> {
-                    val intent = Intent(this, HomeActivity::class.java)
-                    intent.putExtra("app_title", "AquaSplash")
-                    intent.putExtra("app_subtitle", "Waterpark terbaik di Rumbai!")
-                    startActivity(intent)
-                    true
-                }
-                R.id.menu_ticket -> {
-                    val intent = Intent(this, TicketActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                R.id.menu_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
-                else -> false
-            }
-        }
+//        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+//            when (item.itemId) {
+//                R.id.menu_home -> {
+//                    val intent = Intent(this, HomeActivity::class.java)
+//                    intent.putExtra("app_title", "AquaSplash")
+//                    intent.putExtra("app_subtitle", "Waterpark terbaik di Rumbai!")
+//                    startActivity(intent)
+//                    true
+//                }
+//                R.id.menu_ticket -> {
+//                    val intent = Intent(this, TicketActivity::class.java)
+//                    startActivity(intent)
+//                    true
+//                }
+//                R.id.menu_profile -> {
+//                    val intent = Intent(this, ProfileActivity::class.java)
+//                    startActivity(intent)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
     }
 }
