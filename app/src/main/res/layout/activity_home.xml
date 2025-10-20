@@ -72,7 +72,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="219dp"
-            android:background="@drawable/btn_gradient"
+            android:background="@drawable/bg_gradient"
             android:padding="20dp">
 
             <!-- Judul Promosi -->
@@ -321,7 +321,7 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_placeholder_family"
+                android:src="@drawable/p_family"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

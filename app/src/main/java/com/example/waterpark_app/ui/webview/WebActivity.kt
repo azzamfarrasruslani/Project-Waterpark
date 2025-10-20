@@ -25,6 +25,10 @@ class WebActivity : AppCompatActivity() {
 
         binding.webView.webViewClient = WebViewClient()
         binding.webView.settings.javaScriptEnabled = true
-        binding.webView.loadUrl("https://www.tiket.com/to-do/search?title=waterpark")
+        binding.webView.loadUrl("https://www.traveloka.com/id-id/activities/indonesia/product/pondok-indah-waterpark-tickets-2000644442762")
+
+        binding.btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 }

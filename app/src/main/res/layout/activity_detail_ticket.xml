@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:fontFamily="@font/poppins_regular"
+    tools:context=".ui.ticket.DetailTicketActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_toolbar_gradient"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+    <!-- Isi custom toolbar -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingHorizontal="16dp">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circle_white"
+                android:padding="10dp"
+                android:src="@drawable/ic_arrow_left"
+                app:tint="@color/primary_color"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-Ticket"
+                android:textColor="@color/primary_color"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
+                app:layout_constraintEnd_toStartOf="@id/btnShare"
+                app:layout_constraintHorizontal_bias="0.5" />
+
+            <ImageView
+                android:id="@+id/btnShare"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circle_white"
+                android:padding="10dp"
+                android:src="@drawable/ic_share"
+                app:tint="@color/primary_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Kartu Tiket -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardTicket"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:padding="20dp">
+
+            <!-- Family Ticket Badge -->
+            <TextView
+                android:id="@+id/tvBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_gradient"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp"
+                android:text="Family Ticket"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Judul -->
+            <TextView
+                android:id="@+id/tvTicketTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AquaWorld Waterpark"
+                android:textColor="#002855"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/tvBadge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Subtitle -->
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Premium Access Pass"
+                android:textColor="#7A7A7A"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintTop_toBottomOf="@id/tvTicketTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Visit Date & Entry Time -->
+            <ImageView
+                android:id="@+id/icCalendar"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_calendar"
+                app:tint="#007BFF"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvVisitDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dec 25, 2024"
+                android:textColor="#002855"
+                android:textSize="14sp"
+
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/icCalendar"
+                app:layout_constraintBottom_toBottomOf="@id/icCalendar"
+                app:layout_constraintStart_toEndOf="@id/icCalendar" />
+
+            <TextView
+                android:id="@+id/tvEntryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Entry Time"
+                android:textColor="#7A7A7A"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="@id/icCalendar"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvEntryTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00 AM"
+                android:textColor="#002855"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tvEntryLabel"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Visitors -->
+            <ImageView
+                android:id="@+id/icVisitors"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_manyperson"
+                app:tint="#007BFF"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/tvEntryTime"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvVisitors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 People"
+                android:textColor="#002855"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/icVisitors"
+                app:layout_constraintBottom_toBottomOf="@id/icVisitors"
+                app:layout_constraintStart_toEndOf="@id/icVisitors" />
+
+            <TextView
+                android:id="@+id/tvVisitorDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 Adults • 2 Children"
+                android:textColor="#7A7A7A"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/tvVisitors"
+                app:layout_constraintStart_toStartOf="@id/tvVisitors" />
+
+            <!-- Order ID -->
+            <TextView
+                android:id="@+id/tvOrderIdLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order ID"
+                android:textColor="#7A7A7A"
+                android:textSize="12sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/tvVisitorDetail"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvOrderId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AW2024123456"
+                android:textColor="#007BFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/tvOrderIdLabel"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Garis Pembatas -->
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#D9E2F3"
+                app:layout_constraintTop_toBottomOf="@id/tvOrderId"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- QR Section -->
+            <TextView
+                android:id="@+id/tvScan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan at entrance gate"
+                android:textColor="#002855"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/qrCode"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/qr"
+                app:layout_constraintTop_toBottomOf="@id/tvScan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvValid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valid until end of visit day"
+                android:textColor="#7A7A7A"
+                android:textSize="12sp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/qrCode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

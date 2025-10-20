@@ -6,53 +6,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fontFamily="@font/poppins_regular"
-    android:background="#E5E7EB"
+    android:background="@drawable/bg_gradient2"
     tools:context=".ui.login.LoginActivity">
 
     <!-- Logo -->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="185dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
 
     <!-- Title -->
 
     <!-- Subtitle -->
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/poppins_black"
-        android:gravity="center"
-        android:text="AquaSplash\nWaterpark"
-        android:textColor="#111111"
-        android:textSize="30sp"
-        android:textStyle="bold"
+
+    <!-- CardView Login -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="192dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/logo_color2"
+        app:layout_constraintBottom_toTopOf="@+id/subtitle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="640dp"
         android:gravity="center"
         android:text="Welcome Back! Let's plan your waterpark\nadventure."
-        android:textColor="#4B5563"
+        android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- CardView Login -->
     <androidx.cardview.widget.CardView
         android:id="@+id/loginCard"
         android:layout_width="0dp"
@@ -75,8 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Sign In"
-                android:textColor="#1F2937"
+                android:text="Login"
+                android:textColor="@color/primary_color"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -168,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Forgot Password?"
-                android:textColor="#00BCD4"
+                android:textColor="@color/secondary_color"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -180,7 +172,7 @@
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/btn_gradient"
+                android:background="@drawable/bg_gradient"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Sign In"
                 android:textColor="@android:color/white"
@@ -211,7 +203,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign Up"
-            android:textColor="#00BCD4"
+            android:textColor="@color/secondary_color"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/textPrompt"
@@ -224,7 +216,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Don't have an account? "
-            android:textColor="#555555"
+            android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

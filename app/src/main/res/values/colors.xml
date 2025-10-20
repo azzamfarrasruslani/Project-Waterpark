@@ -2,10 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bg_color">#E0F7FA</color>
+    <color name="bg_color">#E3F2FD</color>
+    <color name="bg_primary">#1F3195</color>
+    <color name="secondary_color">#FFC300</color>
     <color name="primary_color">#0288D1</color>
     <color name="nav_active_background">#007BFF</color>
     <color name="nav_active_text">#007BFF</color>
     <color name="nav_inactive_background">#F0F0F0</color>
     <color name="nav_inactive_tint">#8A8A8A</color>
+    <color name="purple_500">#6B21A8</color>
 </resources>
