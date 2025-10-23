@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.waterpark_app.R
 import com.example.waterpark_app.databinding.FragmentHomeBinding
-import com.example.waterpark_app.databinding.FragmentTicketBinding
 import com.example.waterpark_app.ui.webview.WebActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class HomeFragment : Fragment() {
@@ -26,13 +26,17 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Akses komponen lewat binding
         binding.startBookingButton.setOnClickListener {
             val intent = Intent(requireActivity(), WebActivity::class.java)
             startActivity(intent)
+        }
+        binding.btnViewAll.setOnClickListener {
+            val bottomNav =
+                requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            bottomNav.selectedItemId = R.id.menu_ticket
         }
     }
 

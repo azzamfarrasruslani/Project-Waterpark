@@ -28,7 +28,7 @@
         app:itemIconSize="20dp"
         app:labelVisibilityMode="labeled"
         android:clipToPadding="false"
-        android:background="@drawable/bg_bottom_nav_floating"
+        android:background="@drawable/bottom_nav_background"
         app:menu="@menu/bottom_nav"
         app:itemBackground="@drawable/bottom_nav_item_background_selector"
         app:itemIconTint="@color/bottom_nav_icon_color_selector"

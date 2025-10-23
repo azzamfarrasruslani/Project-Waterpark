@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/bg_color"
+    android:background="@drawable/bg_gradient3"
     tools:context=".ui.home.HomeFragment">
 
  <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,48 +17,22 @@
 
      <ImageView
          android:id="@+id/logo"
-         android:layout_width="69dp"
-         android:layout_height="59dp"
+         android:layout_width="134dp"
+         android:layout_height="77dp"
          android:layout_marginStart="24dp"
-         android:layout_marginTop="44dp"
+         android:layout_marginTop="40dp"
          android:contentDescription="TODO"
          android:paddingHorizontal="5dp"
-         android:src="@drawable/logo_color3"
-
+         android:src="@drawable/logo_color2"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
          app:shapeAppearanceOverlay="@style/roundedImageView" />
-
-     <TextView
-        android:id="@+id/appName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppins_extrabold"
-        android:text="AquaTrip"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/logo"
-        app:layout_constraintTop_toTopOf="@id/logo" />
-
-     <TextView
-        android:id="@+id/appSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Waterpark"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
-        app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintTop_toBottomOf="@+id/appName" />
 
      <androidx.cardview.widget.CardView
         android:id="@+id/promoCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="2dp"
         android:layout_marginHorizontal="25dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
@@ -72,12 +46,10 @@
             android:background="@drawable/bg_gradient2"
             android:padding="20dp">
 
-             <!-- Judul Promosi -->
              <TextView
                 android:id="@+id/promoTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_extrabold"
                 android:text="Let's Go to the Waterpark!"
                 android:textColor="#FFFFFF"
@@ -86,7 +58,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-             <!-- Subjudul Promosi -->
              <TextView
                 android:id="@+id/promoSub"
                 android:layout_width="0dp"
@@ -98,7 +69,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/promoTitle" />
 
-             <!-- Tombol Mulai Booking -->
+
              <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/startBookingButton"
                 android:layout_width="129dp"
@@ -115,9 +86,6 @@
          </androidx.constraintlayout.widget.ConstraintLayout>
      </androidx.cardview.widget.CardView>
 
-     <!-- ========================================== -->
-     <!-- MENU CEPAT (Tiket, dll) -->
-     <!-- ========================================== -->
 
      <androidx.cardview.widget.CardView
         android:id="@+id/quickMenuContainer"
@@ -136,8 +104,6 @@
             android:layout_height="wrap_content"
              android:background="@color/white"
             android:padding="16dp">
-
-             <!-- ========== MENU 1: Tiket ========== -->
 
              <androidx.cardview.widget.CardView
                 android:id="@+id/cardMenuTicket"
@@ -171,8 +137,6 @@
                 app:layout_constraintStart_toStartOf="@id/cardMenuTicket"
                 app:layout_constraintTop_toBottomOf="@id/cardMenuTicket" />
 
-             <!-- ========== MENU 2: History ========== -->
-
              <androidx.cardview.widget.CardView
                 android:id="@+id/cardMenuHistory"
                 android:layout_width="60dp"
@@ -205,7 +169,6 @@
                 app:layout_constraintStart_toStartOf="@id/cardMenuHistory"
                 app:layout_constraintTop_toBottomOf="@id/cardMenuHistory" />
 
-             <!-- ========== MENU 3: Location ========== -->
 
              <androidx.cardview.widget.CardView
                 android:id="@+id/cardMenuLocation"
@@ -238,8 +201,6 @@
                 app:layout_constraintEnd_toEndOf="@id/cardMenuLocation"
                 app:layout_constraintStart_toStartOf="@id/cardMenuLocation"
                 app:layout_constraintTop_toBottomOf="@id/cardMenuLocation" />
-
-             <!-- ========== MENU 4: Attractions ========== -->
 
              <androidx.cardview.widget.CardView
                 android:id="@+id/cardMenuAttractions"
@@ -276,14 +237,6 @@
          </androidx.constraintlayout.widget.ConstraintLayout>
      </androidx.cardview.widget.CardView>
 
-      <!-- ========================================== -->
-     <!-- LABEL RECOMMENDED -->
-     <!-- ========================================== -->
-
-     <!-- ========================================== -->
-     <!-- KARTU TIKET FAMILY PASS -->
-     <!-- ========================================== -->
-
      <TextView
         android:id="@+id/recommendedLabel"
         android:layout_width="wrap_content"
@@ -295,6 +248,20 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/quickMenuContainer" />
+
+     <TextView
+         android:id="@+id/btnViewAll"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="View All"
+         android:textAlignment="center"
+         android:textSize="15sp"
+         android:textColor="@color/primary_color"
+         app:layout_constraintBottom_toBottomOf="@+id/recommendedLabel"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.658"
+         app:layout_constraintStart_toEndOf="@+id/recommendedLabel"
+         app:layout_constraintTop_toTopOf="@+id/recommendedLabel" />
 
      <androidx.cardview.widget.CardView
         android:id="@+id/cardFamilyPass"
@@ -310,14 +277,14 @@
          <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="12dp">
+            android:padding="15dp">
 
              <com.google.android.material.imageview.ShapeableImageView
                  android:id="@+id/ticketImage"
                  android:layout_width="0dp"
                  android:layout_height="150dp"
                  android:scaleType="centerCrop"
-                 android:src="@drawable/p_family"
+                 android:src="@drawable/p_family_pass"
                  app:layout_constraintEnd_toEndOf="parent"
                  app:layout_constraintHorizontal_bias="0.0"
                  app:layout_constraintStart_toStartOf="parent"
@@ -329,8 +296,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Family Pass"
-                android:textSize="16sp"
+                android:text="Family Package"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ticketImage" />
@@ -347,29 +314,33 @@
                 app:layout_constraintTop_toBottomOf="@id/ticketTitle" />
 
              <!-- Harga -->
-             <TextView
-                android:id="@+id/ticketPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="$89"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/ticketTitle"
-                app:layout_constraintTop_toBottomOf="@id/ticketSubtitle" />
 
              <!-- Tombol Booking -->
+
+             <TextView
+                 android:id="@+id/ticketPrice"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:fontFamily="@font/poppins_bold"
+                 android:text="$89"
+                 android:textColor="@color/primary_color"
+                 android:textSize="25sp"
+                 android:textStyle="bold"
+                 app:layout_constraintStart_toStartOf="@id/ticketTitle"
+                 app:layout_constraintTop_toBottomOf="@id/ticketSubtitle" />
+
              <Button
-                android:id="@+id/btnBookNow"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@null"
+                 android:id="@+id/btnBookNow"
+                 android:layout_width="131dp"
+                 android:layout_height="44dp"
                  android:background="@drawable/bg_gradient2"
-                android:text="Book Now"
-                android:textColor="@android:color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ticketPrice" />
+                 android:backgroundTint="@null"
+                 android:text="Book Now"
+                 android:textColor="@android:color/white"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintHorizontal_bias="1.0"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@+id/ticketSubtitle" />
 
          </androidx.constraintlayout.widget.ConstraintLayout>
      </androidx.cardview.widget.CardView>
@@ -450,6 +421,8 @@
             app:layout_constraintTop_toBottomOf="@id/a" />
 
      </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
      <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
      <!--        android:id="@+id/bottomNavigationView"-->

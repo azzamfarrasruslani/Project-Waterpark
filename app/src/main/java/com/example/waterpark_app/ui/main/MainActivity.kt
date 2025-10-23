@@ -25,23 +25,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Menyesuaikan padding untuk system bars (status bar, navigation bar)
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, 0, systemBars.right, 0)
             insets
         }
 
-        // 1. Menampilkan fragment awal saat Activity pertama kali dibuat.
-        //    Pengecekan savedInstanceState == null adalah best practice untuk menghindari
-        //    penambahan fragment baru saat terjadi perubahan konfigurasi (misal: rotasi layar).
         if (savedInstanceState == null) {
             replaceFragment(HomeFragment())
-            // Menandai item 'home' sebagai item yang aktif di BottomNavigationView
             binding.bottomNavigationView.selectedItemId = R.id.menu_home
         }
 
-        // 2. Setup listener untuk BottomNavigationView
         setupBottomNavListener()
     }
 
@@ -52,18 +46,17 @@ class MainActivity : AppCompatActivity() {
                     HomeFragment()
                 }
                 R.id.menu_ticket -> {
-                    TicketFragment() // Pastikan Anda sudah membuat TicketFragment
+                    TicketFragment()
                 }
                 R.id.menu_profile -> {
-                    ProfileFragment() // Pastikan Anda sudah membuat ProfileFragment
+                    ProfileFragment()
                 }
                 else -> {
-                    // Default fragment jika terjadi kesalahan, sebaiknya kembali ke home
                     HomeFragment()
                 }
             }
             replaceFragment(fragment)
-            true // Return true untuk menandakan event telah ditangani
+            true
         }
     }
 
