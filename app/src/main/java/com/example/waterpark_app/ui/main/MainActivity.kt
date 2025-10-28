@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.waterpark_app.R
 import com.example.waterpark_app.databinding.ActivityMainBinding
+import com.example.waterpark_app.ui.history.HistoryFragment
 import com.example.waterpark_app.ui.home.HomeActivity
 import com.example.waterpark_app.ui.home.HomeFragment
 import com.example.waterpark_app.ui.profile.ProfileActivity
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge() // Mengaktifkan tampilan edge-to-edge
+        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -36,10 +37,6 @@ class MainActivity : AppCompatActivity() {
             binding.bottomNavigationView.selectedItemId = R.id.menu_home
         }
 
-        setupBottomNavListener()
-    }
-
-    private fun setupBottomNavListener() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             val fragment: Fragment = when (item.itemId) {
                 R.id.menu_home -> {
@@ -50,6 +47,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menu_profile -> {
                     ProfileFragment()
+                }
+                R.id.menu_history -> {
+                    HistoryFragment()
                 }
                 else -> {
                     HomeFragment()

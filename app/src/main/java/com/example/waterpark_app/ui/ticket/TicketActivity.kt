@@ -25,6 +25,8 @@ class TicketActivity : AppCompatActivity() {
             insets
         }
 
+
+
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home -> {

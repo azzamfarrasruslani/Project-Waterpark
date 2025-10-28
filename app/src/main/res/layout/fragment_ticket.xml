@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient3">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
@@ -12,106 +12,131 @@
         android:fontFamily="@font/poppins_regular">
 
         <!-- Header Logo dan Judul -->
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="69dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:paddingHorizontal="5dp"
-            android:src="@drawable/logo_color3"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/transparent"
+            android:elevation="4dp"
+            android:fitsSystemWindows="true"
+            android:paddingHorizontal="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/appName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_extrabold"
-            android:text="AquaTrip"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/appSubtitle"
-            app:layout_constraintStart_toEndOf="@id/logo"
-            app:layout_constraintTop_toTopOf="@id/logo"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintHorizontal_bias="0" />
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways|snap">
 
-        <TextView
-            android:id="@+id/appSubtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Waterpark"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/appName"
-            app:layout_constraintTop_toBottomOf="@id/appName" />
+                <!-- Layout custom di dalam Toolbar -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+
+                    <LinearLayout
+                        android:id="@+id/textContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.52">
+
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_black"
+                            android:text="Daftar Tiket"
+                            android:textColor="@color/primary_color"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvSubtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lihat dan kelola tiket yang telah Anda pesan."
+                            android:textColor="@color/primary_color"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
 
         <!-- Filter Button -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="12dp"
+            android:layout_margin="1dp"
+            android:layout_marginBottom="8dp"
             app:cardElevation="4dp"
-            app:layout_constraintTop_toBottomOf="@id/logo"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerViewTickets"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:paddingHorizontal="20dp">
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btnAll"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_gradient2"
-                    android:text="All"
-                    android:textColor="@color/white"
+                    android:layout_marginEnd="8dp"
                     android:drawableLeft="@drawable/ic_manyperson"
                     android:drawableTint="@color/white"
                     android:paddingHorizontal="12dp"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/btnAdult"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="All"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_chainStyle="spread" />
+                    app:layout_constraintEnd_toStartOf="@id/btnAdult"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/btnAdult"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_gradient2"
-                    android:text="Adult"
-                    android:textColor="@color/white"
+                    android:layout_marginHorizontal="8dp"
                     android:drawableLeft="@drawable/ic_person"
                     android:drawableTint="@color/white"
                     android:paddingHorizontal="12dp"
-                    android:layout_marginHorizontal="8dp"
-                    app:layout_constraintStart_toEndOf="@id/btnAll"
+                    android:text="Adult"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/btnAll"
                     app:layout_constraintEnd_toStartOf="@id/btnChild"
-                    app:layout_constraintTop_toTopOf="@id/btnAll"
-                    app:layout_constraintBottom_toBottomOf="@id/btnAll" />
+                    app:layout_constraintStart_toEndOf="@id/btnAll"
+                    app:layout_constraintTop_toTopOf="@id/btnAll" />
 
                 <Button
                     android:id="@+id/btnChild"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_gradient2"
-                    android:text="Child"
-                    android:textColor="@color/white"
+                    android:layout_marginStart="8dp"
                     android:drawableLeft="@drawable/ic_child"
                     android:drawableTint="@color/white"
                     android:paddingHorizontal="12dp"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintStart_toEndOf="@id/btnAdult"
+                    android:text="Child"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/btnAll"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/btnAll"
-                    app:layout_constraintBottom_toBottomOf="@id/btnAll" />
+                    app:layout_constraintStart_toEndOf="@id/btnAdult"
+                    app:layout_constraintTop_toTopOf="@id/btnAll" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -121,10 +146,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/cardView"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/cardView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

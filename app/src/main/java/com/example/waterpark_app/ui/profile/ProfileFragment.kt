@@ -25,10 +25,7 @@ class ProfileFragment : Fragment() {
 
         val sharedPref = requireActivity().getSharedPreferences("user_pref", MODE_PRIVATE)
 
-        // Gunakan apply agar ringkas
         binding.apply {
-            // Akses tombol di dalam layout include
-
             profileSettings.logoutRow.setOnClickListener {
                 MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Konfirmasi")
@@ -52,6 +49,11 @@ class ProfileFragment : Fragment() {
 
             profileSettings.paymentRow.setOnClickListener {
                 Toast.makeText(requireContext(), "Payment diklik", Toast.LENGTH_SHORT).show()
+            }
+
+            profileSettings.notificationsRow.setOnClickListener {
+                val intent = Intent(requireActivity(), NotificationActivity::class.java)
+                startActivity(intent)
             }
 
 
