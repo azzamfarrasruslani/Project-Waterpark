@@ -14,6 +14,23 @@ class NotificationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNotificationBinding
 
+    val notifications = listOf(
+        mapOf(
+            "title" to "Pembelian Tiket Berhasil",
+            "message" to "Tiket Waterpark untuk 2 orang telah dikonfirmasi.",
+            "time" to "Baru saja"
+        ),
+        mapOf(
+            "title" to "Promo Weekend!",
+            "message" to "Dapatkan diskon 20% untuk pembelian tiket keluarga.",
+            "time" to "2 jam lalu"
+        ),
+        mapOf(
+            "title" to "Notifikasi Pembayaran",
+            "message" to "Pembayaran kamu telah diterima dengan sukses.",
+            "time" to "Kemarin"
+        )
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,25 +51,6 @@ class NotificationActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
-
-
-        val notifications = listOf(
-            mapOf(
-                "title" to "Pembelian Tiket Berhasil",
-                "message" to "Tiket Waterpark untuk 2 orang telah dikonfirmasi.",
-                "time" to "Baru saja"
-            ),
-            mapOf(
-                "title" to "Promo Weekend!",
-                "message" to "Dapatkan diskon 20% untuk pembelian tiket keluarga.",
-                "time" to "2 jam lalu"
-            ),
-            mapOf(
-                "title" to "Notifikasi Pembayaran",
-                "message" to "Pembayaran kamu telah diterima dengan sukses.",
-                "time" to "Kemarin"
-            )
-        )
 
         val from = arrayOf("title", "message", "time")
         val to = intArrayOf(
