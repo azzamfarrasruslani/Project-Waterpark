@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="16dp"
     android:layout_marginBottom="8dp"
+    android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp">
 
@@ -21,20 +20,21 @@
             android:id="@+id/iv_ticket_icon_bg"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:background="#E3F2FD"
+            android:contentDescription="Ikon Tiket"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="Ikon Tiket" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_ticket_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_ticket"
-            app:layout_constraintStart_toStartOf="@id/iv_ticket_icon_bg"
-            app:layout_constraintEnd_toEndOf="@id/iv_ticket_icon_bg"
-            app:layout_constraintTop_toTopOf="@id/iv_ticket_icon_bg"
             app:layout_constraintBottom_toBottomOf="@id/iv_ticket_icon_bg"
-            app:tint="@color/primary_color" />
+            app:layout_constraintEnd_toEndOf="@id/iv_ticket_icon_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_ticket_icon_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_ticket_icon_bg"
+            app:tint="#1E88E5" />
 
         <TextView
             android:id="@+id/tv_package_title"
@@ -42,40 +42,41 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="Family Package"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:textColor="@color/primary_color"
+            android:textColor="#1E88E5"
+            android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tv_status_badge"
             app:layout_constraintStart_toEndOf="@id/iv_ticket_icon_bg"
-            app:layout_constraintTop_toTopOf="@id/iv_ticket_icon_bg"
-            app:layout_constraintEnd_toStartOf="@id/tv_status_badge"/>
+            app:layout_constraintTop_toTopOf="@id/iv_ticket_icon_bg" />
 
         <TextView
             android:id="@+id/tv_package_subtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="2 Adults + 2 Children"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="#757575"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_package_title"
             app:layout_constraintStart_toStartOf="@id/tv_package_title"
-            app:layout_constraintTop_toBottomOf="@id/tv_package_title"
-            app:layout_constraintEnd_toEndOf="@id/tv_package_title"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_package_title" />
 
         <TextView
             android:id="@+id/tv_status_badge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:background="#4CAF50"
             android:paddingStart="12dp"
             android:paddingTop="4dp"
             android:paddingEnd="12dp"
             android:paddingBottom="4dp"
-            android:text="✔ Used"
-            android:textColor="@android:color/white"
+            android:text="Used"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_ticket_icon_bg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_ticket_icon_bg"
-            app:layout_constraintBottom_toBottomOf="@id/iv_ticket_icon_bg" />
+            app:layout_constraintTop_toTopOf="@id/iv_ticket_icon_bg" />
 
         <ImageView
             android:id="@+id/iv_calendar_icon"
@@ -85,7 +86,7 @@
             android:src="@drawable/ic_calendar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_ticket_icon_bg"
-            app:tint="@android:color/darker_gray" />
+            app:tint="#9E9E9E" />
 
         <TextView
             android:id="@+id/tv_visit_date"
@@ -93,23 +94,23 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="Visited on: Sept 15, 2025"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="#757575"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_calendar_icon"
             app:layout_constraintStart_toEndOf="@id/iv_calendar_icon"
-            app:layout_constraintTop_toTopOf="@id/iv_calendar_icon"
-            app:layout_constraintBottom_toBottomOf="@id/iv_calendar_icon" />
+            app:layout_constraintTop_toTopOf="@id/iv_calendar_icon" />
 
         <TextView
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$120.00"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-            android:textColor="@color/primary_color"
+            android:text="Rp 120.000"
+            android:textColor="#1E88E5"
+            android:textSize="17sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_calendar_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_calendar_icon"
-            app:layout_constraintBottom_toBottomOf="@id/iv_calendar_icon" />
+            app:layout_constraintTop_toTopOf="@id/iv_calendar_icon" />
 
         <TextView
             android:id="@+id/tv_order_id"
@@ -117,30 +118,26 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Order #WP2025091501"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="#757575"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_calendar_icon"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/iv_calendar_icon" />
 
         <TextView
             android:id="@+id/btn_view_ticket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button_bg"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
+            android:background="#FFFFFFFF"
             android:paddingStart="12dp"
             android:paddingTop="8dp"
             android:paddingEnd="12dp"
             android:paddingBottom="8dp"
             android:text="View Ticket"
-            android:textColor="@color/primary_color"
+            android:textColor="#1E88E5"
             android:textStyle="bold"
-            app:drawableTint="@color/primary_color"
+            app:layout_constraintBottom_toBottomOf="@id/tv_order_id"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_order_id"
-            app:layout_constraintBottom_toBottomOf="@id/tv_order_id" />
+            app:layout_constraintTop_toTopOf="@id/tv_order_id" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

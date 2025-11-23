@@ -4,20 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.waterpark_app.data.model.HistoryModel
+import com.example.waterpark_app.data.repository.HistoryRepository
 import com.example.waterpark_app.databinding.FragmentHistoryBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
 
-    private val historyList = listOf(
-        HistoryModel("Family Pass", "2 Adults + 2 Kids", "15 Sept 2025", "$120.00", "✔ Used", "WP2025091501"),
-        HistoryModel("Single Adult Ticket", "1 Adult", "12 Sept 2025", "$45.00", "✔ Used", "WP2025091202"),
-        HistoryModel("Kids Splash Pass", "1 Child", "10 Sept 2025", "$25.00", "✔ Used", "WP2025091003")
-    )
+    // Gunakan repository, jangan API langsung
+    private val repository = HistoryRepository()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,13 +33,47 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
-            title = "Riwayat Transaksi"
-        }
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Riwayat Transaksi"
 
+        fetchHistory()
+    }
 
-        val adapter = HistoryAdapter(requireContext(), historyList)
-        binding.listViewHistory.adapter = adapter
+    private fun fetchHistory() {
+        binding.progressBar.visibility = View.VISIBLE
+
+        repository.getAllHistory().enqueue(object : Callback<List<HistoryModel>> {
+
+            override fun onResponse(
+                call: Call<List<HistoryModel>>,
+                response: Response<List<HistoryModel>>
+            ) {
+                binding.progressBar.visibility = View.GONE
+
+                if (response.isSuccessful) {
+                    val data = response.body() ?: emptyList()
+
+                    val adapter = HistoryAdapter(data)
+                    binding.rvHistory.layoutManager = LinearLayoutManager(requireContext())
+                    binding.rvHistory.adapter = adapter
+
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Gagal memuat data riwayat",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<HistoryModel>>, t: Throwable) {
+                binding.progressBar.visibility = View.GONE
+                Toast.makeText(
+                    requireContext(),
+                    "Error: ${t.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        })
     }
 
     override fun onDestroyView() {

@@ -1,40 +1,48 @@
 package com.example.waterpark_app.ui.history
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
+import com.example.waterpark_app.data.model.HistoryModel
 import com.example.waterpark_app.databinding.HistoryItemCardBinding
 
 class HistoryAdapter(
-    context: Context,
     private val historyList: List<HistoryModel>
-) : ArrayAdapter<HistoryModel>(context, 0, historyList) {
+) : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val binding: HistoryItemCardBinding =
-            HistoryItemCardBinding.inflate(LayoutInflater.from(context), parent, false)
-        val view = binding.root
+    inner class ViewHolder(val binding: HistoryItemCardBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = HistoryItemCardBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return ViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = historyList[position]
 
-        binding.tvPackageTitle.text = item.title
-        binding.tvPackageSubtitle.text = item.subtitle
-        binding.tvVisitDate.text = "Visited on: ${item.visitDate}"
-        binding.tvPrice.text = item.price
-        binding.tvStatusBadge.text = item.status
-        binding.tvOrderId.text = "Order #${item.orderId}"
+        holder.binding.apply {
+            tvPackageTitle.text = item.title
+            tvPackageSubtitle.text = item.subtitle
+            tvVisitDate.text = "Visited on: ${item.visitDate}"
+            tvPrice.text = "Rp ${item.totalPrice}"
+            tvStatusBadge.text = item.status
+            tvOrderId.text = "Order #${item.orderId}"
 
-        binding.btnViewTicket.setOnClickListener {
-            Toast.makeText(
-                context,
-                "Lihat tiket: ${item.title}",
-                Toast.LENGTH_SHORT
-            ).show()
+            btnViewTicket.setOnClickListener {
+                Toast.makeText(
+                    root.context,
+                    "Lihat tiket: ${item.title}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
-
-        return view
     }
+
+    override fun getItemCount(): Int = historyList.size
 }

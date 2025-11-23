@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:fontFamily="@font/poppins_regular">
 
-        <!-- Header Logo dan Judul -->
+        <!-- Header dengan background waterpark theme -->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
@@ -30,13 +30,13 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
                 app:layout_scrollFlags="scroll|enterAlways|snap">
 
                 <!-- Layout custom di dalam Toolbar -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="70dp">
-
 
                     <LinearLayout
                         android:id="@+id/textContainer"
@@ -55,8 +55,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_black"
-                            android:text="Daftar Tiket"
-                            android:textColor="@color/primary_color"
+                            android:text="Pilih Tiket"
+                            android:textColor="@color/white"
                             android:textSize="25sp"
                             android:textStyle="bold" />
 
@@ -64,8 +64,8 @@
                             android:id="@+id/tvSubtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Lihat dan kelola tiket yang telah Anda pesan."
-                            android:textColor="@color/primary_color"
+                            android:text="Pilih jenis tiket yang sesuai dengan kebutuhan Anda"
+                            android:textColor="@color/white"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -74,71 +74,113 @@
             </com.google.android.material.appbar.MaterialToolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Filter Button -->
+        <!-- Filter ChipGroup dengan rounded full -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            android:layout_marginBottom="8dp"
-            app:cardElevation="4dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
             app:layout_constraintBottom_toTopOf="@+id/recyclerViewTickets"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp">
+                android:orientation="vertical"
+                android:padding="8dp">
 
-                <Button
-                    android:id="@+id/btnAll"
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:drawableLeft="@drawable/ic_manyperson"
-                    android:drawableTint="@color/white"
-                    android:paddingHorizontal="12dp"
-                    android:text="All"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/btnAdult"
-                    app:layout_constraintHorizontal_chainStyle="spread"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Jenis Tiket"
+                    android:textColor="@color/primary_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/btnAdult"
-                    android:layout_width="0dp"
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
-                    android:drawableLeft="@drawable/ic_person"
-                    android:drawableTint="@color/white"
-                    android:paddingHorizontal="12dp"
-                    android:text="Adult"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@id/btnAll"
-                    app:layout_constraintEnd_toStartOf="@id/btnChild"
-                    app:layout_constraintStart_toEndOf="@id/btnAll"
-                    app:layout_constraintTop_toTopOf="@id/btnAll" />
+                    android:scrollbars="none">
 
-                <Button
-                    android:id="@+id/btnChild"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:drawableLeft="@drawable/ic_child"
-                    android:drawableTint="@color/white"
-                    android:paddingHorizontal="12dp"
-                    android:text="Child"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@id/btnAll"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/btnAdult"
-                    app:layout_constraintTop_toTopOf="@id/btnAll" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        app:chipSpacingHorizontal="12dp"
+                        app:chipSpacingVertical="8dp"
+                        app:singleSelection="true"
+                        app:singleLine="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipAll"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checkable="true"
+                            android:checked="true"
+                            android:textColor="@color/white"
+                            android:text="Semua"
+                            app:chipBackgroundColor="@color/chip_selected"
+                            app:chipStrokeColor="@color/chip_stroke_selected"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="50dp"
+                            app:chipIconSize="18dp"
+                            app:chipIconTint="@color/white"
+                            app:chipStartPadding="12dp"
+                            app:chipEndPadding="12dp"
+                            app:checkedIconVisible="false" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipAdult"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checkable="true"
+                            android:text="Dewasa"
+                            app:chipBackgroundColor="@color/chip_unselected"
+                            app:chipStrokeColor="@color/chip_stroke_unselected"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="50dp"
+                            app:chipIconSize="18dp"
+                            app:chipIconTint="@color/primary_color"
+                            app:chipStartPadding="12dp"
+                            app:chipEndPadding="12dp"
+                            app:checkedIconVisible="false" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipChild"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checkable="true"
+                            android:text="Anak-anak"
+                            app:chipBackgroundColor="@color/chip_unselected"
+                            app:chipStrokeColor="@color/chip_stroke_unselected"
+                            app:chipStrokeWidth="1dp"
+                            app:chipCornerRadius="50dp"
+                            app:chipIconSize="18dp"
+                            app:chipIconTint="@color/primary_color"
+                            app:chipStartPadding="12dp"
+                            app:chipEndPadding="12dp"
+                            app:checkedIconVisible="false" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+
 
         <!-- RecyclerView untuk Daftar Tiket -->
         <androidx.recyclerview.widget.RecyclerView
@@ -146,6 +188,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

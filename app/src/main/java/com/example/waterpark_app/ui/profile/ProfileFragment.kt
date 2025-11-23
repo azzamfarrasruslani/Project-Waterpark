@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.waterpark_app.databinding.FragmentProfileBinding
 import com.example.waterpark_app.ui.login.LoginActivity
+import com.example.waterpark_app.ui.wiki.WikiActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ProfileFragment : Fragment() {
@@ -49,6 +50,11 @@ class ProfileFragment : Fragment() {
 
             profileSettings.paymentRow.setOnClickListener {
                 Toast.makeText(requireContext(), "Payment diklik", Toast.LENGTH_SHORT).show()
+            }
+
+            profileSettings.wikiRow.setOnClickListener {
+                val intent = Intent(requireActivity(), WikiActivity::class.java)
+                startActivity(intent)
             }
 
             profileSettings.notificationsRow.setOnClickListener {

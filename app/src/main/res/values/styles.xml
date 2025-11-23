@@ -35,5 +35,9 @@
         <item name="android:maxLines">2</item>
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#DDDDDD</item>
+        <item name="colorControlActivated">#FFC107</item>
+    </style>
 
 </resources>

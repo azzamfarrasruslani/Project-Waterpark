@@ -14,6 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WaterparkAPP">
         <activity
+            android:name=".ui.wiki.WikiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.CheckEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.welcome.WelcomeScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.profile.NotificationActivity"
             android:exported="false" />
         <activity

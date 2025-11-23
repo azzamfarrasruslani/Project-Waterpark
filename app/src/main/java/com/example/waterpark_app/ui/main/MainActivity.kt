@@ -14,6 +14,7 @@ import com.example.waterpark_app.ui.home.HomeActivity
 import com.example.waterpark_app.ui.home.HomeFragment
 import com.example.waterpark_app.ui.profile.ProfileActivity
 import com.example.waterpark_app.ui.profile.ProfileFragment
+import com.example.waterpark_app.ui.shop.ShopFragment
 import com.example.waterpark_app.ui.ticket.TicketFragment
 import com.example.waterpark_app.ui.webview.WebActivity
 
@@ -44,6 +45,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menu_ticket -> {
                     TicketFragment()
+                }
+                R.id.menu_shop-> {
+                    ShopFragment()
                 }
                 R.id.menu_profile -> {
                     ProfileFragment()
