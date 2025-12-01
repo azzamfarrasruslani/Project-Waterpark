@@ -7,7 +7,6 @@ import retrofit2.Call
 class HistoryRepository {
     private val api = SupabaseApiClient.apiService
 
-    // Nama harus konsisten dengan yang dipanggil Fragment
     fun getAllHistory(): Call<List<HistoryModel>> {
         return api.getHistory()
     }

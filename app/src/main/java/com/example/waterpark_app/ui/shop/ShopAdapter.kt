@@ -1,5 +1,6 @@
 package com.example.waterpark_app.ui.shop
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +24,6 @@ class ShopAdapter(
 
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {
         val item = items[position]
-
         holder.binding.tvName.text = item.name
         holder.binding.tvDescription.text = item.description
         holder.binding.tvPrice.text = "Rp ${item.price}"

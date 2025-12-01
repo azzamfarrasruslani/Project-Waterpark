@@ -37,7 +37,8 @@ class ShopFragment : Fragment() {
     private fun fetchShopItems() {
         binding.progressBar.visibility = View.VISIBLE
 
-        repository.getAllShopItems().enqueue(object : Callback<List<ShopModel>> {
+        repository.getAllShopItems().enqueue(object : Callback<List<ShopModel>>
+        {
 
             override fun onResponse(
                 call: Call<List<ShopModel>>,
@@ -48,11 +49,7 @@ class ShopFragment : Fragment() {
                 if (response.isSuccessful) {
                     val items = response.body() ?: emptyList()
 
-                    // GANTI BARIS INI:
-                    // Dari: binding.rvShop.layoutManager = LinearLayoutManager(requireContext())
-                    // Menjadi:
                     binding.rvShop.layoutManager = GridLayoutManager(requireContext(), 1)
-
                     binding.rvShop.adapter = ShopAdapter(items)
                 } else {
                     Toast.makeText(requireContext(), "Gagal memuat merchandise", Toast.LENGTH_SHORT).show()
